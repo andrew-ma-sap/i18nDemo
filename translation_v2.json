@@ -1,0 +1,20 @@
+{
+    "comment": "More information: https://jam4.sapjam.com/wiki/show/UFKzGv6i81yui7orPvmwtQ",
+    "collections": [{
+        "collectionName": "i18nDemo",
+        "folders": [
+            {
+                "startingFolderPath": "/webapp/resources/**",
+                "sourceFilters": [
+                    "*.properties"
+                ]
+            }
+        ]
+    }],
+    "defaultConfiguration": {
+        "targetFolderPath": ".",
+        "pseudoLocFolderPath": ".",
+        "oneQFolderPath": ".",
+        "targetFileNamingConvention": "[filename]_[langCode].[extension]"
+    }
+}
