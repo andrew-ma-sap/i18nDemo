@@ -6,7 +6,7 @@
 		"type": "application",
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
-		"i18n": "resources/i18n.properties",
+		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		}
@@ -49,12 +49,12 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.demo.i18n.resources.i18n"
+					"bundleName": "sap.ui.demo.i18n.i18n.i18n"
 				}
 			},
-			"data": {
+			"compositeMessageFormData": {
 				"type": "sap.ui.model.json.JSONModel",
-				"uri": "model/data.json"
+				"uri": "model/compositeMessageFormData.json"
 			}
 		},
 		"contentDensities": {

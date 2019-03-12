@@ -1,15 +1,247 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" controllerName="sap.ui.demo.i18n.controller.App">
-	<Panel headerText="{i18n>panelHeaderText}" class="sapUiResponsiveMargin" width="auto">
-		<content>
-			<Label text="{i18n>dropdownListLabel}" class="sapUiSmallMargin"/>
-			<Select>
-				<items>
-					<core:Item text="{i18n>dropdownListItem1Text}"/>
-					<core:Item text="{i18n>dropdownListItem2Text}"/>
-					<core:Item text="{i18n>dropdownListItem3Text}"/>
-					<core:Item text="{i18n>dropdownListItem4Text}"/>
-				</items>
-			</Select>
-		</content>
-	</Panel>
+<mvc:View xmlns="sap.m" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core" 
+xmlns:html="http://www.w3.org/1999/xhtml"
+controllerName="sap.ui.demo.i18n.controller.App">
+	<App>
+		<pages>
+			<Page title="{i18n>panelHeaderText}">
+				<content>
+					<HBox class="sapUiSmallMargin">
+						<!--
+						<core:Icon
+				            src="sap-icon://notes"
+				            size="3rem"
+				            class="sapUiMediumMargin"/>
+						<FormattedText class="sapUiSmallMargin" htmlText="{i18n>changeLanguageInfo}"/>
+						-->
+					</HBox>
+					<IconTabBar 
+					id="idTopLevelIconTabBar" 
+					class="sapUiResponsiveContentPadding"
+					selectedKey="hardCodedStrings">
+						<items>
+							<IconTabFilter id="idHardCodedStringsTab" text="{i18n>hardCodedStringsTab}" key="hardCodedStrings">
+								<l:Grid vSpacing="1" containerQuery="true" defaultSpan="L12 M12 S12">
+									<html:div>
+										<MessageStrip
+											text="{i18n>hardCodedStringsIssueDescription}"
+											type="Warning"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>genericActionDescription}"
+											type="Information"
+											showIcon="true"
+											customIcon="sap-icon://action"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>hardCodedStringsAfterActionDescription}"
+											type="Information"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+									</html:div>
+									<html:div>
+										<Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+											<content>
+												<TileContent class="sapUiSmallMargin">
+													<content>
+														<NewsContent contentText="{i18n>sampleText1}" />
+													</content>
+												</TileContent>
+												<TileContent class="sapUiSmallMargin">
+													<content>
+														<NewsContent contentText="Text that has not been externalized for translation..." />
+													</content>
+												</TileContent>
+												<TileContent class="sapUiSmallMargin">
+													<content>
+														<NewsContent contentText="{i18n>sampleText2}" />
+													</content>
+												</TileContent>
+											</content>
+										</Panel>
+									</html:div>	
+								</l:Grid>
+							</IconTabFilter>
+							<IconTabFilter id="idCompositeMessagesTab" text="{i18n>compositeMessagesTab}" key="compositeMessages">
+								<l:Grid vSpacing="2" containerQuery="true" defaultSpan="L12 M12 S12">
+									<html:div>
+										<MessageStrip
+											text="{i18n>compositeMessagesIssueDescription}"
+											type="Warning"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>genericActionDescription}"
+											type="Information"
+											showIcon="true"
+											customIcon="sap-icon://action"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>compositeMessagesAfterActionDescription}"
+											type="Information"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+									</html:div>
+									<html:div>
+									<Label text="{i18n>dropdownListLabel}" class="sapUiSmallMargin"/>
+									<Select>
+										<items>
+											<core:Item text="{i18n>dropdownListItem1Text}"/>
+											<core:Item text="{i18n>dropdownListItem2Text}"/>
+											<core:Item text="{i18n>dropdownListItem3Text}"/>
+											<core:Item text="{i18n>dropdownListItem4Text}"/>
+										</items>
+									</Select>
+									</html:div>
+								</l:Grid>
+							</IconTabFilter>
+							<IconTabFilter id="idConcatenationsTab" text="{i18n>concatenationsTab}" key="concatenationsTab">
+								<l:Grid vSpacing="1" containerQuery="true" defaultSpan="L12 M12 S12">
+									<html:div>
+										<MessageStrip
+											text="{i18n>concatenationsIssueDescription}"
+											type="Warning"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>genericActionDescription}"
+											type="Information"
+											showIcon="true"
+											customIcon="sap-icon://action"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>concatenationsAfterActionDescription}"
+											type="Information"
+											showIcon="true"
+											class="sapUiSmallMargin">
+									</MessageStrip>
+									</html:div>
+									<html:div>
+										<VBox>
+											<f:SimpleForm id="simpleForm"
+												editable="true"
+												layout="ResponsiveGridLayout"
+												labelSpanXL="4"
+												labelSpanL="3"
+												labelSpanM="4"
+												labelSpanS="12"
+												adjustLabelSpan="false"
+												emptySpanXL="0"
+												emptySpanL="4"
+												emptySpanM="0"
+												emptySpanS="0"
+												columnsXL="2"
+												columnsL="1"
+												columnsM="1"
+												singleContainerFullSize="false" >
+												<f:content>
+													<Label text="{i18n>lastEntriesNumberLabel}" />
+													<Input 	
+														id="idDefaultEntriesNumber"
+														value="{
+															path : 'compositeMessageFormData>/defaultEntriesNumber',
+															type : 'sap.ui.model.type.Integer',
+															constraints : {
+																maximum : 5000
+															}
+														}" />
+													<Label text="{i18n>totalEntriesNumberLabel}" />
+													<Input 
+														value="{
+															path : 'compositeMessageFormData>/totalEntriesNumber'
+														}"
+														enabled="false" />
+												</f:content>
+											</f:SimpleForm>
+											<Toolbar>
+												<Button text="{i18n>concatenatedStringButtonText}" press="onShowCompositeMessage" class="sapUiSmallMargin"/>
+												<Button text="{i18n>concatenatedStringSolutionsButtonText}" press="onShowFullSentenceMessage" class="sapUiSmallMargin"/>
+											</Toolbar>
+										</VBox>
+									</html:div>
+									<html:div>
+										<MessageStrip
+										text="{i18n>concatenationsSolutionDescription}"
+										type="Success"
+										showIcon="true"
+										class="sapUiSmallMargin">
+										</MessageStrip>
+									</html:div>
+								</l:Grid>
+							</IconTabFilter>
+							<IconTabFilter id="idTruncatedStringsTab" text="{i18n>truncatedStringsTab}" key="truncatedStringsTab">
+								<l:Grid vSpacing="1" containerQuery="true" defaultSpan="L12 M12 S12">
+									<html:div>
+										<MessageStrip
+											text="{i18n>truncatedStringsIssueDescription}"
+											type="Warning"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>truncatedStringsActionDescription}"
+											type="Information"
+											showIcon="true"
+											customIcon="sap-icon://action"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+										<MessageStrip
+											text="{i18n>truncatedStringsAfterActionDescription}"
+											type="Information"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+									</html:div>
+									<html:div>
+										<Toolbar id="idTruncatedStringsToolbar" class="sapUiSmallMargin">
+											<Label text="{i18n>truncatedStringsLabel}" class="sapUiSmallMarginBegin">
+												<layoutData>
+													<ToolbarLayoutData shrinkable="false" />
+												</layoutData>
+											</Label>
+											<Input id="idTruncatedStringsInput" width="20%" class="sapUiSmallMarginBegin">
+												<layoutData>
+													<ToolbarLayoutData shrinkable="false" />
+												</layoutData>
+											</Input>
+											<Button text="{i18n>truncatedStringsButtonText}" press="onShowTruncatedText" class="sapUiSmallMargin">
+												<layoutData>
+													<ToolbarLayoutData shrinkable="false" />
+												</layoutData>
+											</Button>
+											<Button id="idTruncatedStringsButton" text="..." class="sapUiSmallMargin">
+												<layoutData>
+													<ToolbarLayoutData shrinkable="true" maxWidth="100px"/>
+												</layoutData>
+											</Button>
+										</Toolbar>
+									</html:div>
+									<html:div>
+										<MessageStrip
+											text="{i18n>truncatedStringsSolutionDescription}"
+											type="Success"
+											showIcon="true"
+											class="sapUiSmallMargin">
+										</MessageStrip>
+									</html:div>
+								</l:Grid>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>	
 </mvc:View>
