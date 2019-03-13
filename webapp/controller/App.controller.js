@@ -4,10 +4,18 @@ sap.ui.define([
 ], function (Controller, MessageToast) {
 	"use strict";
 	
-	return Controller.extend("sap.ui.demo.i18n.controller.App", {
+	return Controller.extend("sap.ui.i18n.demo.controller.App", {
+		
+		onShowLocale: function () {
+			var sLocale = this.byId("idChangeLocaleInput").getValue();
+			var sHost = window.location.host;
+			var sPathname = window.location.pathname;
+			var sTarget = "https://" + sHost + sPathname + "?sap-language=" + sLocale;
+			parent.window.location.assign(sTarget);
+		},
 		
 		onShowCompositeMessage: function () {
-			if (! sap.ui.controller("sap.ui.demo.i18n.controller.App").validate(this)) {
+			if (! sap.ui.controller("sap.ui.i18n.demo.controller.App").validate(this)) {
 				return;
 			}// read msg from i18n model
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
@@ -21,7 +29,7 @@ sap.ui.define([
 		},
 		
 		onShowFullSentenceMessage: function () {
-			if (! sap.ui.controller("sap.ui.demo.i18n.controller.App").validate(this)) {
+			if (! sap.ui.controller("sap.ui.i18n.demo.controller.App").validate(this)) {
 				return;
 			}// read msg from i18n model
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
@@ -38,7 +46,7 @@ sap.ui.define([
 			var oBundle = oController.getView().getModel("i18n").getResourceBundle();
 			var inputField = oController.byId("idDefaultEntriesNumber");
 			var entriesValue = inputField.getValue();
-			if ( ! sap.ui.controller("sap.ui.demo.i18n.controller.App").isNumberFieldValid(entriesValue) ){
+			if ( ! sap.ui.controller("sap.ui.i18n.demo.controller.App").isNumberFieldValid(entriesValue) ){
 			      inputField.setValueState(sap.ui.core.ValueState.Error);
 			      inputField.setValueStateText(oBundle.getText("numberFieldValidationError"));
 			      inputField.focus();

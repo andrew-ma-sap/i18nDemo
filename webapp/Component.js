@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (UIComponent) {
 	"use strict";
 	
-	return UIComponent.extend("sap.ui.demo.i18n.Component", {
+	return UIComponent.extend("sap.ui.i18n.demo.Component", {
 
 		metadata : {
 			manifest: "json"
@@ -12,8 +12,9 @@ sap.ui.define([
 		init : function () {
 			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);
-			// additional initialization can be done here
+
 			var sQueryParameters = window.location.search;
+			// if a locale has been queried explicitly
 			if (sQueryParameters.indexOf("sap-language") !== -1) {
 				var sLocale;
 				var iLanguageParamStart = sQueryParameters.indexOf("sap-language") + "sap-language=".length;
@@ -23,12 +24,16 @@ sap.ui.define([
 					var iLanguageParamEnd = sQueryParameters.indexOf("&", iLanguageParamStart);
 					sLocale = sQueryParameters.substring(iLanguageParamStart, iLanguageParamEnd);
 				}
-				sap.ui.getCore().getConfiguration().setLanguage(sLocale);
+				try {
+					sap.ui.getCore().getConfiguration().setLanguage(sLocale);
+				} catch (e) {
+					// fall back to enUS
+					sap.ui.getCore().getConfiguration().setLanguage("en_US");
+				}
 			} else {
 				// set enUS as default
 				sap.ui.getCore().getConfiguration().setLanguage("en_US");
 			}
 		}
-
 	});
 });
