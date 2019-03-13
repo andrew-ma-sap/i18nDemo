@@ -4,7 +4,7 @@
         "collectionName": "i18nDemo",
         "folders": [
             {
-                "startingFolderPath": "/webapp/resources/**",
+                "startingFolderPath": "/webapp/i18n/**",
                 "sourceFilters": [
                     "*.properties"
                 ]
