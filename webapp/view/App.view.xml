@@ -165,7 +165,7 @@ controllerName="sap.ui.i18n.demo.controller.App">
 													<Input 	
 														id="idDefaultEntriesNumber"
 														value="{
-															path : 'compositeMessageFormData>/defaultEntriesNumber',
+															path : 'compositeMessageFormData>/lastEntriesNumber',
 															type : 'sap.ui.model.type.Integer',
 															constraints : {
 																maximum : 5000

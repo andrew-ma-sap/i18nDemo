@@ -20,9 +20,9 @@ sap.ui.define([
 			}// read msg from i18n model
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
 			var compositeMessageFormData = this.getView().getModel("compositeMessageFormData");
-			var defaultEntriesNumber = compositeMessageFormData.getProperty("/defaultEntriesNumber");
+			var lastEntriesNumber = compositeMessageFormData.getProperty("/lastEntriesNumber");
 			var totalEntriesNumber = compositeMessageFormData.getProperty("/totalEntriesNumber");
-			var sMsg = oBundle.getText("concatenatedString1") + " " + defaultEntriesNumber + " " + oBundle.getText("concatenatedString2") + " " +
+			var sMsg = oBundle.getText("concatenatedString1") + " " + lastEntriesNumber + " " + oBundle.getText("concatenatedString2") + " " +
 			totalEntriesNumber + " " + oBundle.getText("concatenatedString3");
 			// show message
 			MessageToast.show(sMsg);
@@ -34,9 +34,9 @@ sap.ui.define([
 			}// read msg from i18n model
 			var oBundle = this.getView().getModel("i18n").getResourceBundle();
 			var compositeMessageFormData = this.getView().getModel("compositeMessageFormData");
-			var defaultEntriesNumber = compositeMessageFormData.getProperty("/defaultEntriesNumber");
+			var lastEntriesNumber = compositeMessageFormData.getProperty("/lastEntriesNumber");
 			var totalEntriesNumber = compositeMessageFormData.getProperty("/totalEntriesNumber");
-			var sMsg = oBundle.getText("fullSentenceMessage", [defaultEntriesNumber, totalEntriesNumber]);
+			var sMsg = oBundle.getText("fullSentenceMessage", [lastEntriesNumber, totalEntriesNumber]);
 			// show message
 			MessageToast.show(sMsg);
 		},
