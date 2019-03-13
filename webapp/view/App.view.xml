@@ -12,7 +12,7 @@ controllerName="sap.ui.i18n.demo.controller.App">
 					<Toolbar id="idChangeLocaleToolbar" class="sapUiSmallMargin">
 						<Label text="{i18n>changeLocaleLabel}" class="sapUiSmallMarginBegin">
 						</Label>
-						<Input id="idChangeLocaleInput" width="20%" class="sapUiSmallMarginBegin">
+						<Input id="idChangeLocaleInput" width="10%" class="sapUiSmallMarginBegin">
 						</Input>
 						<Button text="{i18n>changeLocaleButton}" press="onShowLocale" class="sapUiSmallMargin">
 						</Button>
